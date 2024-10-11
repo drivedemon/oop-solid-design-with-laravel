@@ -1,0 +1,25 @@
+includes:
+    - ./vendor/larastan/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - app
+        - database
+        - routes
+
+    # The level 8 is the highest level
+    level: 5
+
+    ignoreErrors:
+        - '#Access to an undefined property App\\Http\\Resources\\*#'
+        - '#Access to an undefined property Illuminate\\Database\\Eloquent\\Model::*#'
+    #    - '#Access to an undefined property App\\Models\\*#'
+    #    - '#Unsafe usage of new static#'
+    #    - '#Call to an undefined static method Illuminate\\Support\\Facades\\Http::log#'
+
+    excludePaths:
+        - ./routes/console.php
+
+    # checkMissingIterableValueType: false
+    treatPhpDocTypesAsCertain: false
