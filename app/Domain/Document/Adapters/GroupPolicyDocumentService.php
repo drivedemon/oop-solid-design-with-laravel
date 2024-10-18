@@ -13,7 +13,7 @@ class GroupPolicyDocumentService implements ServiceInterface
 
     public function __construct(GroupPolicyDocumentRepository $groupPolicyDocumentRepository)
     {
-        $this->groupPolicyDocuments = new Collection();
+        $this->groupPolicyDocuments = new Collection;
         $this->groupPolicyDocumentRepository = $groupPolicyDocumentRepository;
     }
 

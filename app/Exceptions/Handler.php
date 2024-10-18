@@ -8,8 +8,8 @@ use App\Domain\Layout\LayoutException;
 use App\Domain\UserGroup\UserGroupException;
 use App\Traits\ResponseTrait;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -59,15 +59,6 @@ class Handler extends ExceptionHandler
         });
     }
 
-    /**
-     * Render an exception into an HTTP response.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @param \Throwable $exception
-     * @return \Illuminate\Http\Response|\Illuminate\Http\JsonResponse
-     *
-     * @throws \Throwable
-     */
     public function render($request, Throwable $exception)
     {
         //HTTP Error Code 405
@@ -89,15 +80,19 @@ class Handler extends ExceptionHandler
         }
 
         if ($exception instanceof ValidationException) {
-            return $this->errorResponse(
-                'validation_error',
-                $exception->validator->errors()->toArray(),
-                Response::HTTP_UNPROCESSABLE_ENTITY
-            );
+            return response()->json([
+                'success' => false,
+                'status' => Response::HTTP_UNPROCESSABLE_ENTITY,
+                'message' => 'validation_error',
+            ], Response::HTTP_NOT_FOUND);
         }
 
         if ($exception instanceof HttpException) {
-            return $this->errorResponse($exception->getMessage(), [], $exception->getStatusCode());
+            return response()->json([
+                'success' => false,
+                'status' => $exception->getStatusCode(),
+                'message' => $exception->getMessage(),
+            ], $exception->getStatusCode());
         }
 
         return parent::render($request, $exception);

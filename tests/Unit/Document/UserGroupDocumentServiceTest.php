@@ -6,8 +6,6 @@ use App\Domain\Document\Adapters\UserGroupDocumentService;
 use App\Domain\Document\UserGroupDocument\UserGroupDocumentRepository;
 use App\Enums\DocumentType\DocumentType as EDocumentType;
 use App\Models\DocumentType;
-use App\Models\GroupPolicyDocument;
-use App\Models\GroupPolicySetting;
 use App\Models\UserGroup;
 use App\Models\UserGroupDocument;
 use Tests\TestCase;

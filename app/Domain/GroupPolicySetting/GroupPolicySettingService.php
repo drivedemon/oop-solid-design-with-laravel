@@ -11,7 +11,7 @@ class GroupPolicySettingService
 
     public function __construct(GroupPolicySettingRepository $groupPolicySettingRepository)
     {
-        $this->groupPolicySettings = new Collection();
+        $this->groupPolicySettings = new Collection;
         $this->groupPolicySettingRepository = $groupPolicySettingRepository;
     }
 

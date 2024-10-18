@@ -12,7 +12,7 @@ class UserGroupService
 
     public function __construct(UserGroupRepository $userGroupRepository)
     {
-        $this->userGroups = new Collection();
+        $this->userGroups = new Collection;
         $this->userGroupRepository = $userGroupRepository;
     }
 

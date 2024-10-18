@@ -12,7 +12,7 @@ class LayoutModuleServiceTest extends TestCase
 {
     protected function getService(): LayoutModuleService
     {
-        return new LayoutModuleService();
+        return new LayoutModuleService;
     }
 
     public function test_set_unique_module_from_layouts(): void

@@ -11,7 +11,7 @@ class LayoutService
 
     public function __construct(LayoutRepository $layoutRepository)
     {
-        $this->layouts = new Collection();
+        $this->layouts = new Collection;
         $this->layoutRepository = $layoutRepository;
     }
 

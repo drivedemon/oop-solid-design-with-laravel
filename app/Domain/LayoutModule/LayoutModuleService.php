@@ -10,7 +10,7 @@ class LayoutModuleService
 
     public function __construct()
     {
-        $this->modules = new Collection();
+        $this->modules = new Collection;
     }
 
     public function getModules(): Collection

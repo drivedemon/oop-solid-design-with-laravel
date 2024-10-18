@@ -4,8 +4,6 @@ namespace Database\Factories;
 
 use App\Enums\RecordStatus;
 use App\Models\DocumentType;
-use App\Models\Group;
-use App\Models\User;
 use App\Models\UserGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 

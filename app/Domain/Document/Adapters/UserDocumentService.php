@@ -13,7 +13,7 @@ class UserDocumentService implements ServiceInterface
 
     public function __construct(UserDocumentRepository $userDocumentRepository)
     {
-        $this->userDocuments = new Collection();
+        $this->userDocuments = new Collection;
         $this->userDocumentRepository = $userDocumentRepository;
     }
 

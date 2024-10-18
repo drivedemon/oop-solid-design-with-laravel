@@ -13,7 +13,7 @@ class UserGroupDocumentService implements ServiceInterface
 
     public function __construct(UserGroupDocumentRepository $userGroupDocumentRepository)
     {
-        $this->userGroupDocuments = new Collection();
+        $this->userGroupDocuments = new Collection;
         $this->userGroupDocumentRepository = $userGroupDocumentRepository;
     }
 

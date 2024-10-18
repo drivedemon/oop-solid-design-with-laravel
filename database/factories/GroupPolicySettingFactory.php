@@ -2,14 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Enums\Group\GroupType;
 use App\Enums\GroupPolicySetting\AccessMode;
 use App\Enums\GroupPolicySetting\ClaimManagementType;
 use App\Enums\RecordStatus;
 use App\Models\Group;
 use App\Models\Policy;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
 
 class GroupPolicySettingFactory extends Factory
 {
