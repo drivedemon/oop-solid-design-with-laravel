@@ -69,8 +69,8 @@ jobs:
           CACHE_DRIVER: array
           SESSION_DRIVER: array
           QUEUE_DRIVER: sync
-        #        run: vendor/bin/phpunit
-        run: php artisan test --parallel
+        run: vendor/bin/phpunit
+#        run: php artisan test --parallel
 
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
