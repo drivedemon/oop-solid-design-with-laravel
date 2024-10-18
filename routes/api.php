@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PolicyDocumentController;
+use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,7 +24,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 
     Route::resource('dashboard', DashboardController::class)->only(['index']);
-    Route::resource('policy-documents', PolicyDocumentController::class)->only(['index']);
+    Route::resource('documents', DocumentController::class)->only(['index']);
 
     Route::prefix('users')->group(function () {
         Route::get('profile', [UserController::class, 'profile'])->name('users.profile');

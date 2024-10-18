@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Policy\PolicyType;
 use App\Enums\RecordStatus;
 use App\Traits\UuidModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,6 +34,7 @@ class Policy extends Model
         'record_status',
     ];
     protected $casts = [
+        'policy_type' => PolicyType::class,
         'start_date' => 'timestamp',
         'policy_end_date' => 'timestamp',
         'created_at' => 'timestamp',

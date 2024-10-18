@@ -9,10 +9,11 @@ use App\Domain\GroupPolicySetting\GroupPolicySettingService;
 use App\Domain\UserGroup\UserGroupException;
 use App\Domain\UserGroup\UserGroupService;
 use App\Enums\DocumentType\DocumentType;
+use App\Http\Requests\GetDocumentRequest;
 use App\Http\Resources\DocumentResource;
 use Illuminate\Http\JsonResponse;
 
-class PolicyDocumentController extends Controller
+class DocumentController extends Controller
 {
     private DocumentService $documentService;
     private GroupPolicySettingService $groupPolicySettingService;
@@ -28,8 +29,11 @@ class PolicyDocumentController extends Controller
         $this->groupPolicySettingService = $groupPolicySettingService;
     }
 
-    public function index(): JsonResponse
+    public function index(GetDocumentRequest $request): JsonResponse
     {
+        $data = $request->validated();
+        $documentType = DocumentType::from($data['document_type'] ?? DocumentType::POLICY_DOCUMENT->value);
+
         $groupIds = [];
         $userGroupIds = [];
         $user = auth()->user();
@@ -44,7 +48,7 @@ class PolicyDocumentController extends Controller
         } catch (GroupException|GroupPolicySettingException|UserGroupException $exception) {
         }
 
-        $this->documentService->setDocumentType(DocumentType::POLICY_DOCUMENT);
+        $this->documentService->setDocumentType($documentType);
         $this->documentService->getGroupPolicyDocumentByGroupPolicySettingIds(
             $this->groupPolicySettingService->getGroupPolicySettings()->pluck('uuid')->toArray()
         );

@@ -23,6 +23,7 @@ class DocumentType extends Model
     protected $primaryKey = 'uuid';
     protected $keyType = 'string';
     public $incrementing = false;
+    public $timestamps = false;
     protected $fillable = [
         'type',
         'is_active',

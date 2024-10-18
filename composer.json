@@ -53,7 +53,7 @@
             "@php artisan key:generate --ansi"
         ],
         "stan": "vendor/bin/phpstan analyse",
-        "test": "@php artisan test --parallel",
+        "test": "vendor/bin/phpunit",
         "pint": "vendor/bin/pint"
     },
     "extra": {
