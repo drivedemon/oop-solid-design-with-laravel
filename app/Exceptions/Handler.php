@@ -62,38 +62,38 @@ class Handler extends ExceptionHandler
     public function render($request, Throwable $exception)
     {
         //HTTP Error Code 405
-//        if ($exception instanceof MethodNotAllowedHttpException) {
-//            return response()->json([
-//                'success' => false,
-//                'status' => Response::HTTP_METHOD_NOT_ALLOWED,
-//                'message' => '405 Method Not Allowed',
-//            ], Response::HTTP_METHOD_NOT_ALLOWED);
-//        }
-//
-//        //HTTP Error Code 404
-//        if ($exception instanceof NotFoundHttpException) {
-//            return response()->json([
-//                'success' => false,
-//                'status' => Response::HTTP_NOT_FOUND,
-//                'message' => '404 Not Found',
-//            ], Response::HTTP_NOT_FOUND);
-//        }
-//
-//        if ($exception instanceof ValidationException) {
-//            return response()->json([
-//                'success' => false,
-//                'status' => Response::HTTP_UNPROCESSABLE_ENTITY,
-//                'message' => 'validation_error',
-//            ], Response::HTTP_NOT_FOUND);
-//        }
-//
-//        if ($exception instanceof HttpException) {
-//            return response()->json([
-//                'success' => false,
-//                'status' => $exception->getStatusCode(),
-//                'message' => $exception->getMessage(),
-//            ], $exception->getStatusCode());
-//        }
+        //        if ($exception instanceof MethodNotAllowedHttpException) {
+        //            return response()->json([
+        //                'success' => false,
+        //                'status' => Response::HTTP_METHOD_NOT_ALLOWED,
+        //                'message' => '405 Method Not Allowed',
+        //            ], Response::HTTP_METHOD_NOT_ALLOWED);
+        //        }
+        //
+        //        //HTTP Error Code 404
+        //        if ($exception instanceof NotFoundHttpException) {
+        //            return response()->json([
+        //                'success' => false,
+        //                'status' => Response::HTTP_NOT_FOUND,
+        //                'message' => '404 Not Found',
+        //            ], Response::HTTP_NOT_FOUND);
+        //        }
+        //
+        //        if ($exception instanceof ValidationException) {
+        //            return response()->json([
+        //                'success' => false,
+        //                'status' => Response::HTTP_UNPROCESSABLE_ENTITY,
+        //                'message' => 'validation_error',
+        //            ], Response::HTTP_NOT_FOUND);
+        //        }
+        //
+        //        if ($exception instanceof HttpException) {
+        //            return response()->json([
+        //                'success' => false,
+        //                'status' => $exception->getStatusCode(),
+        //                'message' => $exception->getMessage(),
+        //            ], $exception->getStatusCode());
+        //        }
 
         return parent::render($request, $exception);
     }
